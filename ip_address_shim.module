@@ -26,5 +26,5 @@ function ip_address_shim_help($route_name, RouteMatchInterface $route_match) {
 
 
 function ip_address() {
-  return Drupal::request->getClientIp();
+  return Drupal::request()->getClientIp();
 }
