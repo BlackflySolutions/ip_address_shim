@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Contains ip_address_shim.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Symfony\Component\HttpFoundation;
+
+/**
+ * Implements hook_help().
+ */
+function ip_address_shim_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ip_address_shim module.
+    case 'help.page.ip_address_shim':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Support the use of the old Drupal ip_address function.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+function ip_address() {
+  return Drupal::request()->getClientIp();
+}
